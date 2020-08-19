@@ -12,8 +12,7 @@ public class SalesMapper extends MapReduceBase implements Mapper <LongWritable, 
     @Override
     public void map(LongWritable longWritable, Text value, OutputCollector<Text, IntWritable> output,
                     Reporter reporter) throws IOException {
-        String valueString = value.toString();
-        String[] SingleCountryData = valueString.split(",");
+        String[] SingleCountryData = value.toString().split(",");
         output.collect(new Text(SingleCountryData[7]), one);
     }
 }
