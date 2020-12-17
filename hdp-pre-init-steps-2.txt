@@ -1,0 +1,190 @@
+    1  ifconfig
+    2  ip
+    3  ip -d
+    4  ip address
+    5  ip address enp0s3
+    6  ip enp0s3
+    7  ip enp0s3 -d
+    8  ip -d enp0s3
+    9  ip
+   10  ip a
+   12  vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   13  systemctl restart network
+   14  ip a
+   15  systemctl status sshd
+   16  /etc/selinux/targeted/
+   18  vi /etc/selinux/config 
+   19  reboot
+   20  vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   21  systemctl restart network
+   22  ip a
+   23  shutdown -h now
+   24  vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   25  systemctl restart network
+   26  ip a
+   27  shutdown -h now
+   28  locale -a
+   29  vi ~/.ssh/config
+   30  localedef -i en_US -f UTF-8 en_US.UTF-8
+   31  vi /etc/sysconfig/network-scripts/
+   32  ip a
+   33  cp /etc/sysconfig/network-scripts/ifcfg-enp0s3 /etc/sysconfig/network-scripts/ifcfg-enp0s8
+   34  vi /etc/sysconfig/network-scripts/ifcfg-enp0s8 
+   35  cat /etc/sysconfig/network-scripts/ifcfg-enp0s8 
+   36  vi /etc/sysconfig/network-scripts/ifcfg-enp0s8 
+   37  systemcl restart network
+   38  systemctl restart network
+   39  ip a
+   40  exit
+   41  vi /etc/environment
+   42  exit
+   43  ping 192.168.5.2
+   44  ssh-keygen
+   46  scp
+   47  scp ~/.ssh/id_rsa.pub root@192.168.5.2:/root/.ssh/
+   48  ssh root@192.168.5.2 'mkdir /root/.ssh'
+   49  scp ~/.ssh/id_rsa.pub root@192.168.5.2:/root/.ssh/
+   50  ssh root@192.168.5.3 'mkdir /root/.ssh'
+   51  scp ~/.ssh/id_rsa.pub root@192.168.5.3:/root/.ssh/
+   52  ssh root@192.168.5.2 'cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys'
+   53  ssh root@192.168.5.3 'cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys'
+   54  ssh root@192.168.5.2 'chmod 700 /root/.ssh; chmod 600 /root/.ssh/authorized_keys'
+   55  ssh root@192.168.5.3 'chmod 700 /root/.ssh; chmod 600 /root/.ssh/authorized_keys'
+   56  ssh root@192.168.5.2
+   57  ssh root@192.168.5.3
+   58  yum install -y ntp && systemctl enable ntpd
+   59  ssh root@192.168.5.2 'yum install -y ntp && systemctl enable ntpd'
+   60  ssh root@192.168.5.3 'yum install -y ntp && systemctl enable ntpd'
+   61  cat /etc/hosts
+   62  hostname
+   63  echo '192.168.5.1 hdp-namenode01' >> /etc/hosts
+   64  echo '192.168.5.2 hdp-namenode02' >> /etc/hosts
+   65  echo '192.168.5.2 hdp-datanode01' >> /etc/hosts
+   66  cat /etc/hosts
+   67  vi /etc/hosts
+   68  history|grep scp
+   69  scp /etc/hosts root@192.168.5.2:/etc/hosts
+   70  scp /etc/hosts root@192.168.5.3:/etc/hosts
+   71  ssh root@hdp-datanode01
+   72  ssh root@hdp-namenode02
+   73  hostname -f
+   74  vi /etc/sysconfig/network
+   75  echo 'NETWORKING=yes' >> /etc/sysconfig/network
+   76  scp /etc/sysconfig/network root@hdp-namenode02:/etc/sysconfig
+   77  scp /etc/sysconfig/network root@hdp-datanode01:/etc/sysconfig
+   78  hostname -f 
+   79  echo HOSTNAME=hdp-namenode01 >> /etc/sysconfig/network
+   80  cat /etc/sysconfig/network
+   81  ssh root@hdp-namenode02 'echo HOSTNAME=hdp-namenode02 >> /etc/sysconfig/network'
+   82  ssh root@hdp-datanode01 'echo HOSTNAME=hdp-datanode01 >> /etc/sysconfig/network'
+   83  ssh root@hdp-namenode02 'cat /etc/sysconfig/network'
+   84  ssh root@hdp-datanode01 'cat /etc/sysconfig/network'
+   85  ssh root@hdp-namenode01 'cat /etc/selinux/config'
+   86  exit
+   87  chmod 700 /root/.ssh; chmod 600 /root/.ssh/authorized_keys
+   88  cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
+   89  chmod 700 /root/.ssh; chmod 600 /root/.ssh/authorized_keys
+   90  ssh root@hdp-namenode01 'cat /etc/selinux/config'
+   91  ssh root@hdp-namenode02 'cat /etc/selinux/config'
+   92  ssh root@hdp-datanode01 'cat /etc/selinux/config'
+   93  ssh root@hdp-namenode01 'echo umask 0022 >> /etc/profile'
+   94  ssh root@hdp-namenode02 'echo umask 0022 >> /etc/profile'
+   95  ssh root@hdp-datanode01 'echo umask 0022 >> /etc/profile'
+   96  cat /etc/profile
+   97  df -h
+   98  wget https://archive.cloudera.com/p/ambari/centos7/2.x/updates/2.7.5.0/ambari-2.7.5.0-centos7.tar.gz
+   99  yum install wget
+  100  wget https://archive.cloudera.com/p/ambari/centos7/2.x/updates/2.7.5.0/ambari-2.7.5.0-centos7.tar.gz
+  101  man wget
+  106  wget https://archive.cloudera.com/p/ambari/centos7/2.x/updates/2.7.4.0/ambari-2.7.4.0-centos7.tar.gz
+  107  wget -O /etc/yum.repos.d/ambari.repo http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.4.0/ambari.repo
+  110  yum update
+  111  cat vi /etc/yum.repos.d/ambari.repo
+  112  yum install ambari-server
+  113  ambari-server setup
+  114  ambari-server start
+  115  ambari-server status
+  118  ambari-server stop
+  119  ambari-server status
+  120  ps -ef|grep post
+  121  shutdown -h now
+  122  ps -ef|grep post
+  123  ambari-server status
+  124  systemctl iptables status
+  125  systemctl firewalld stop
+  126  systemctl stop firewalld
+  127  ssh root@hdp-namenode02 'systemctl stop firewalld && systemctl disable firewalld'
+  128  ssh root@hdp-datanode01 'systemctl stop firewalld && systemctl disable firewalld'
+  129  systemctl disable firewalld
+  134  df -h
+  137  ambari-server stop
+  138  shutdown -h now
+  139  ambari-server status
+  141  mkdir /media/shared
+  142  mount -t vboxsf vmshared /media/shared
+  143  ambari-server stop
+  144  shutdown -h now
+  147  df -h
+  148  yum search virtualbox
+  149  ambari-server stop
+  150  shutdown -h now
+  152  df -h
+  153  mount -t vboxsf vmshared /media/shared
+  154  wget https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Linux_x86.run
+  156  head ~/VirtualBox-5.2.18-124319-Linux_x86.run 
+  157  chmod +x ~/VirtualBox-5.2.18-124319-Linux_x86.run 
+  158  ~/VirtualBox-5.2.18-124319-Linux_x86.run 
+  159  rm VirtualBox-5.2.18-124319-Linux_x86.run 
+  160  wget https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Linux_amd64.run
+  161  chmod +x VirtualBox-5.2.18-124319-Linux_amd64.run 
+  162  ~/VirtualBox-5.2.18-124319-Linux_amd64.run 
+  163  yum install bzip2
+  164  ~/VirtualBox-5.2.18-124319-Linux_amd64.run 
+  165  mount -t vboxsf vmshared /media/shared
+  169  yum search virtualbox
+  172  df -h
+  174  yum install kernel-devel kernel-headers
+  176  ./VirtualBox-5.2.18-124319-Linux_amd64.run 
+  178  yum install kernel-headers
+  179  yum install kernel-devel
+  180  df -h
+  181  /sbin/vboxconfig
+  184  yum update
+  185  /sbin/vboxconfig
+  186  ambari-server status
+  187  df -h
+  188  history
+  189  yum install kernel-devel kernel-headers
+  190  /sbin/vboxconfig
+  193  cat ~/.ssh/id_rsa
+  195  rm VirtualBox-5.2.18-124319-Linux_amd64.run 
+  196  df -h
+  197  ambari-server stop
+  198  shutdown -h now
+  199  ambari-server status
+  200  df -h
+  203  wget http://public-repo-1.hortonworks.com/HDP/centos7/3.x/updates/3.1.4.0/hdp.repo
+  205  cat hdp.repo 
+  207  mv hdp.repo /etc/yum.repos.d/
+  208  yum update
+  209  yum search hdp
+  211  ssh root@namenode02 'systemctl chronyd start'
+  212  ssh root@hdp-namenode02 'systemctl chronyd start'
+  213  ssh root@hdp-namenode02 'systemctl start chronyd'
+  214  systemctl status services
+  215  systemctl status service
+  216  man systemctl
+  217  systemctl show
+  218  systemctl show|grep chron
+  219  systemctl status chronyd
+  220  yum -y install chrony
+  221  systemctl status chronyd
+  222  systemctl enable chronyd
+  223  ssh root@hdp-namenode02 'yum -y install chrony && systemctl enable chronyd'
+  224  ssh root@hdp-datanode01 'yum -y install chrony && systemctl enable chronyd'
+  225  systemctl status chronyd
+  226  systemctl start chronyd
+  227  systemctl status chronyd
+  228  ssh root@hdp-datanode01 'systemctl start chronyd'
+  229  ssh root@hdp-namenode02 'systemctl start chronyd'
+
